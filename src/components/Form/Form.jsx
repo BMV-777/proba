@@ -1,13 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Form = () => {
+const Form = ({ onAddItems }) => {
+  const [description, setDescription] = useState("");
+  const [quantity, setQuantity] = useState(1);
+
+  function handelSubmit(e) {
+    e.preventDefault();
+
+    if (!description) return;
+
+    const newItem = { description, quantity, packed: false, id: new Date() };
+
+    console.log(newItem);
+    onAddItems(newItem);
+    setDescription("");
+    setQuantity(1);
+  }
+
   return (
-    <form className="add-form">
+    <form className="add-form" onSubmit={handelSubmit}>
       <h3>What do you for your 😍 trip?</h3>
-      <select></select>
+      <select value={quantity} onChange={(e) => setQuantity(e.target.value)}>
+        {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
+          <option key={num}>{num}</option>
+        ))}
+      </select>
 
       <label>
-        <input type="text" placeholder="Item..." />
+        <input
+          type="text"
+          placeholder="Item..."
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
       </label>
       <button type="submit">Add</button>
     </form>
