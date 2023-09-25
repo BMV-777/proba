@@ -44,7 +44,7 @@ function App() {
         onToggleItem={handelToggleItem}
         onDeleteItem={handelDeleteItem}
       />
-      <Stats />
+      <Stats items={items} />
     </div>
   );
 }

@@ -9,7 +9,7 @@ const PackingList = ({ items, onToggleItem, onDeleteItem }) => {
         {items.map((item) => (
           <Items
             item={item}
-            key={item}
+            key={item.id}
             onToggleItem={onToggleItem}
             onDeleteItem={onDeleteItem}
           />

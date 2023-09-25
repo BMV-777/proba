@@ -4,7 +4,7 @@ const Stats = () => {
   return (
     <div className="stats">
       <footer>
-        <em>💼 You have X items on your list, and you already packed X (X%)</em>
+        <em>💼 You have 1 items on your list, and you already packed 1 (X%)</em>
       </footer>
     </div>
   );
